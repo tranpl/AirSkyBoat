@@ -36,6 +36,7 @@ xi.trust.messageOffset =
     DESPAWN        = 11,
     SPECIAL_MOVE_1 = 18,
     SPECIAL_MOVE_2 = 19,
+    SPECIAL_MOVE_999   = 999,
 }
 
 local maxMessagePage = 121
@@ -279,14 +280,14 @@ xi.trust.canCast = function(caster, spell, notAllowedTrustIds)
     end
 
     -- Trusts not allowed in an alliance
-    if caster:checkSoloPartyAlliance() == 2 then
+    if caster:checkSoloPartyAlliance() == 3 then
         return xi.msg.basic.TRUST_NO_CAST_TRUST
     end
 
     -- Trusts only allowed in certain zones (Remove this for trusts everywhere)
-    if not caster:canUseMisc(xi.zoneMisc.TRUST) then
-        return xi.msg.basic.TRUST_NO_CALL_AE
-    end
+    -- if not caster:canUseMisc(xi.zoneMisc.TRUST) then
+    --    return xi.msg.basic.TRUST_NO_CALL_AE
+    -- end
 
     -- You can only summon trusts if you are the party leader or solo
     local leader = caster:getPartyLeader()
@@ -301,9 +302,9 @@ xi.trust.canCast = function(caster, spell, notAllowedTrustIds)
         return -1
     end
 
-    -- Block summoning trusts if someone recently joined party (120s)
+    -- Block summoning trusts if someone recently joined party (60s)
     local lastPartyMemberAddedTime = caster:getPartyLastMemberJoinedTime()
-    if os.time() - lastPartyMemberAddedTime < 120 then
+    if os.time() - lastPartyMemberAddedTime < 60 then
         caster:messageSystem(xi.msg.system.TRUST_DELAY_NEW_PARTY_MEMBER)
         return -1
     end
@@ -349,7 +350,7 @@ xi.trust.canCast = function(caster, spell, notAllowedTrustIds)
     end
 
     -- Max party size
-    if numPt >= 6 then
+    if numPt >= 18 then
         caster:messageSystem(xi.msg.system.TRUST_MAXIMUM_NUMBER)
         return -1
     end
