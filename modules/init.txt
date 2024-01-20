@@ -38,3 +38,11 @@
 
 custom/commands/
 custom/lua/test_npcs_in_gm_home.lua
+
+custom/lua/custom_HNM_system.lua
+custom/lua/chocobo_raising_qol.lua
+custom/lua/new_player_linkshell.lua
+
+era/lua/pre_rmt_drops.lua
+era/sql/pre_rmt_drops.sql
+
