@@ -36,5 +36,14 @@
 #
 # Live example:
 
-custom/commands/
-custom/lua/test_npcs_in_gm_home.lua
+#custom/commands/
+#custom/lua/test_npcs_in_gm_home.lua
+custom/lua/chocobo_raising_qol.lua
+custom/lua/custom_HNM_system.lua
+custom/lua/homepoint_heal.lua
+custom/lua/mission_wardrobe_unlocks.lua
+custom/lua/soa_remove_imprimatur_gate.lua
+custom/lua/wotg_decouple_story_missions_from_nation_quests.lua
+custom/lua/replace_trust_with_cornelia.lua
+custom/lua/conquest_regional_npcs_always_up.lua
+custom/lua/new_player_linkshell.lua
