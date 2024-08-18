@@ -349,7 +349,7 @@ xi.trust.canCast = function(caster, spell, notAllowedTrustIds)
     end
 
     -- Max party size
-    if numPt >= 18 then
+    if numPt >= 5 then
         caster:messageSystem(xi.msg.system.TRUST_MAXIMUM_NUMBER)
         return -1
     end
