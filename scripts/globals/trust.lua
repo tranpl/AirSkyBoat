@@ -349,28 +349,28 @@ xi.trust.canCast = function(caster, spell, notAllowedTrustIds)
     end
 
     -- Max party size
-    if numPt >= 6 then
+    if numPt >= 18 then
         caster:messageSystem(xi.msg.system.TRUST_MAXIMUM_NUMBER)
         return -1
     end
 
     -- Some battlefields allow trusts after you get this ROV Key Item
-    local casterBattlefieldID = caster:getBattlefieldID()
-    if
-        rovKIBattlefieldIDs[casterBattlefieldID] and
-        not caster:hasKeyItem(xi.ki.RHAPSODY_IN_UMBER)
-    then
-        return xi.msg.basic.TRUST_NO_CAST_TRUST
-    end
+    --local casterBattlefieldID = caster:getBattlefieldID()
+    --if
+    --    rovKIBattlefieldIDs[casterBattlefieldID] and
+    --    not caster:hasKeyItem(xi.ki.RHAPSODY_IN_UMBER)
+    --then
+    --    return xi.msg.basic.TRUST_NO_CAST_TRUST
+    --end
 
     -- Limits set by ROV Key Items
-    if numTrusts >= 3 and not caster:hasKeyItem(xi.ki.RHAPSODY_IN_WHITE) then
-        caster:messageSystem(xi.msg.system.TRUST_MAXIMUM_NUMBER)
-        return -1
-    elseif numTrusts >= 4 and not caster:hasKeyItem(xi.ki.RHAPSODY_IN_CRIMSON) then
-        caster:messageSystem(xi.msg.system.TRUST_MAXIMUM_NUMBER)
-        return -1
-    end
+    --if numTrusts >= 3 and not caster:hasKeyItem(xi.ki.RHAPSODY_IN_WHITE) then
+    --    caster:messageSystem(xi.msg.system.TRUST_MAXIMUM_NUMBER)
+    --   return -1
+    --elseif numTrusts >= 4 and not caster:hasKeyItem(xi.ki.RHAPSODY_IN_CRIMSON) then
+    --    caster:messageSystem(xi.msg.system.TRUST_MAXIMUM_NUMBER)
+    --    return -1
+    --end
 
     if not xi.trust.checkBattlefieldTrustCount(caster) then
         return xi.msg.basic.TRUST_NO_CAST_TRUST
